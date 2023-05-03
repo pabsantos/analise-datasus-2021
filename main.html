@@ -34,6 +34,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="main_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="main_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="main_files/libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="main_files/libs/plotly-binding-4.10.1/plotly.js"></script>
+<script src="main_files/libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="main_files/libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="main_files/libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="main_files/libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="main_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="main_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 </head>
@@ -48,8 +56,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a></li>
   <li><a href="#cenário-brasileiro" id="toc-cenário-brasileiro" class="nav-link" data-scroll-target="#cenário-brasileiro">Cenário Brasileiro</a></li>
-  <li><a href="#óbitos-por-região" id="toc-óbitos-por-região" class="nav-link" data-scroll-target="#óbitos-por-região">Óbitos por Região</a></li>
-  <li><a href="#análise-por-estado" id="toc-análise-por-estado" class="nav-link" data-scroll-target="#análise-por-estado">Análise por Estado</a></li>
+  <li><a href="#óbitos-por-regiões" id="toc-óbitos-por-regiões" class="nav-link" data-scroll-target="#óbitos-por-regiões">Óbitos por Regiões</a></li>
+  <li><a href="#óbitos-por-estados" id="toc-óbitos-por-estados" class="nav-link" data-scroll-target="#óbitos-por-estados">Óbitos por Estados</a></li>
   <li><a href="#análise-por-modal" id="toc-análise-por-modal" class="nav-link" data-scroll-target="#análise-por-modal">Análise por Modal</a></li>
   <li><a href="#pirâmide-etária-das-vítimas" id="toc-pirâmide-etária-das-vítimas" class="nav-link" data-scroll-target="#pirâmide-etária-das-vítimas">Pirâmide Etária das Vítimas</a></li>
   </ul>
@@ -92,23 +100,23 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="dtxfazebep" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dtxfazebep table {
+<div id="gfjzkjbavb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gfjzkjbavb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dtxfazebep thead, #dtxfazebep tbody, #dtxfazebep tfoot, #dtxfazebep tr, #dtxfazebep td, #dtxfazebep th {
+#gfjzkjbavb thead, #gfjzkjbavb tbody, #gfjzkjbavb tfoot, #gfjzkjbavb tr, #gfjzkjbavb td, #gfjzkjbavb th {
   border-style: none;
 }
 
-#dtxfazebep p {
+#gfjzkjbavb p {
   margin: 0;
   padding: 0;
 }
 
-#dtxfazebep .gt_table {
+#gfjzkjbavb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -134,12 +142,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_caption {
+#gfjzkjbavb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dtxfazebep .gt_title {
+#gfjzkjbavb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -151,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#dtxfazebep .gt_subtitle {
+#gfjzkjbavb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -163,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#dtxfazebep .gt_heading {
+#gfjzkjbavb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -175,13 +183,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_bottom_border {
+#gfjzkjbavb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_col_headings {
+#gfjzkjbavb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -196,7 +204,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_col_heading {
+#gfjzkjbavb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -216,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#dtxfazebep .gt_column_spanner_outer {
+#gfjzkjbavb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -228,15 +236,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#dtxfazebep .gt_column_spanner_outer:first-child {
+#gfjzkjbavb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dtxfazebep .gt_column_spanner_outer:last-child {
+#gfjzkjbavb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dtxfazebep .gt_column_spanner {
+#gfjzkjbavb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -248,11 +256,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#dtxfazebep .gt_spanner_row {
+#gfjzkjbavb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dtxfazebep .gt_group_heading {
+#gfjzkjbavb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -278,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#dtxfazebep .gt_empty_group_heading {
+#gfjzkjbavb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -293,15 +301,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#dtxfazebep .gt_from_md > :first-child {
+#gfjzkjbavb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dtxfazebep .gt_from_md > :last-child {
+#gfjzkjbavb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dtxfazebep .gt_row {
+#gfjzkjbavb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -320,7 +328,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#dtxfazebep .gt_stub {
+#gfjzkjbavb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -333,7 +341,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#dtxfazebep .gt_stub_row_group {
+#gfjzkjbavb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -347,15 +355,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#dtxfazebep .gt_row_group_first td {
+#gfjzkjbavb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dtxfazebep .gt_row_group_first th {
+#gfjzkjbavb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dtxfazebep .gt_summary_row {
+#gfjzkjbavb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -365,16 +373,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#dtxfazebep .gt_first_summary_row {
+#gfjzkjbavb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_first_summary_row.thick {
+#gfjzkjbavb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dtxfazebep .gt_last_summary_row {
+#gfjzkjbavb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -384,7 +392,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_grand_summary_row {
+#gfjzkjbavb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -394,7 +402,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#dtxfazebep .gt_first_grand_summary_row {
+#gfjzkjbavb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -404,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_last_grand_summary_row_top {
+#gfjzkjbavb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -414,11 +422,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_striped {
+#gfjzkjbavb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dtxfazebep .gt_table_body {
+#gfjzkjbavb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -427,7 +435,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_footnotes {
+#gfjzkjbavb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -441,7 +449,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_footnote {
+#gfjzkjbavb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -450,7 +458,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#dtxfazebep .gt_sourcenotes {
+#gfjzkjbavb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -464,7 +472,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#dtxfazebep .gt_sourcenote {
+#gfjzkjbavb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -472,63 +480,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#dtxfazebep .gt_left {
+#gfjzkjbavb .gt_left {
   text-align: left;
 }
 
-#dtxfazebep .gt_center {
+#gfjzkjbavb .gt_center {
   text-align: center;
 }
 
-#dtxfazebep .gt_right {
+#gfjzkjbavb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dtxfazebep .gt_font_normal {
+#gfjzkjbavb .gt_font_normal {
   font-weight: normal;
 }
 
-#dtxfazebep .gt_font_bold {
+#gfjzkjbavb .gt_font_bold {
   font-weight: bold;
 }
 
-#dtxfazebep .gt_font_italic {
+#gfjzkjbavb .gt_font_italic {
   font-style: italic;
 }
 
-#dtxfazebep .gt_super {
+#gfjzkjbavb .gt_super {
   font-size: 65%;
 }
 
-#dtxfazebep .gt_footnote_marks {
+#gfjzkjbavb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dtxfazebep .gt_asterisk {
+#gfjzkjbavb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dtxfazebep .gt_indent_1 {
+#gfjzkjbavb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dtxfazebep .gt_indent_2 {
+#gfjzkjbavb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dtxfazebep .gt_indent_3 {
+#gfjzkjbavb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dtxfazebep .gt_indent_4 {
+#gfjzkjbavb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dtxfazebep .gt_indent_5 {
+#gfjzkjbavb .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -595,29 +603,29 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="óbitos-por-região" class="level2">
-<h2 class="anchored" data-anchor-id="óbitos-por-região">Óbitos por Região</h2>
+<section id="óbitos-por-regiões" class="level2">
+<h2 class="anchored" data-anchor-id="óbitos-por-regiões">Óbitos por Regiões</h2>
 <p>Considerando as macroregiões do Brasil, o <strong>Sul</strong> apresentou o <strong>maior aumento percentual</strong> de mortes no trânsito, atingindo <strong>7,21%</strong>. Em ordem decrescente, segue a Região <strong>Centro-Oeste</strong> com um aumento de <strong>6,56%</strong>, Região <strong>Sudeste</strong> com <strong>4,36%</strong> e Região <strong>Norte</strong> com aumento de <strong>0,95%.</strong> Apenas a Região <strong>Nordeste</strong> apresentou uma redução nos números de mortes no trânsito, com uma variação de <strong>-0,26%.</strong></p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="dtytlwyurh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dtytlwyurh table {
+<div id="gdoxffwioz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gdoxffwioz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dtytlwyurh thead, #dtytlwyurh tbody, #dtytlwyurh tfoot, #dtytlwyurh tr, #dtytlwyurh td, #dtytlwyurh th {
+#gdoxffwioz thead, #gdoxffwioz tbody, #gdoxffwioz tfoot, #gdoxffwioz tr, #gdoxffwioz td, #gdoxffwioz th {
   border-style: none;
 }
 
-#dtytlwyurh p {
+#gdoxffwioz p {
   margin: 0;
   padding: 0;
 }
 
-#dtytlwyurh .gt_table {
+#gdoxffwioz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -643,12 +651,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_caption {
+#gdoxffwioz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dtytlwyurh .gt_title {
+#gdoxffwioz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -660,7 +668,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#dtytlwyurh .gt_subtitle {
+#gdoxffwioz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -672,7 +680,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#dtytlwyurh .gt_heading {
+#gdoxffwioz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -684,13 +692,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_bottom_border {
+#gdoxffwioz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_col_headings {
+#gdoxffwioz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -705,7 +713,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_col_heading {
+#gdoxffwioz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -725,7 +733,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#dtytlwyurh .gt_column_spanner_outer {
+#gdoxffwioz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -737,15 +745,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#dtytlwyurh .gt_column_spanner_outer:first-child {
+#gdoxffwioz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dtytlwyurh .gt_column_spanner_outer:last-child {
+#gdoxffwioz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dtytlwyurh .gt_column_spanner {
+#gdoxffwioz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -757,11 +765,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#dtytlwyurh .gt_spanner_row {
+#gdoxffwioz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dtytlwyurh .gt_group_heading {
+#gdoxffwioz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -787,7 +795,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#dtytlwyurh .gt_empty_group_heading {
+#gdoxffwioz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -802,15 +810,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#dtytlwyurh .gt_from_md > :first-child {
+#gdoxffwioz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dtytlwyurh .gt_from_md > :last-child {
+#gdoxffwioz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dtytlwyurh .gt_row {
+#gdoxffwioz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -829,7 +837,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#dtytlwyurh .gt_stub {
+#gdoxffwioz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -842,7 +850,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#dtytlwyurh .gt_stub_row_group {
+#gdoxffwioz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -856,15 +864,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#dtytlwyurh .gt_row_group_first td {
+#gdoxffwioz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dtytlwyurh .gt_row_group_first th {
+#gdoxffwioz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dtytlwyurh .gt_summary_row {
+#gdoxffwioz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -874,16 +882,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#dtytlwyurh .gt_first_summary_row {
+#gdoxffwioz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_first_summary_row.thick {
+#gdoxffwioz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dtytlwyurh .gt_last_summary_row {
+#gdoxffwioz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -893,7 +901,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_grand_summary_row {
+#gdoxffwioz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -903,7 +911,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#dtytlwyurh .gt_first_grand_summary_row {
+#gdoxffwioz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -913,7 +921,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_last_grand_summary_row_top {
+#gdoxffwioz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -923,11 +931,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_striped {
+#gdoxffwioz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dtytlwyurh .gt_table_body {
+#gdoxffwioz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -936,7 +944,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_footnotes {
+#gdoxffwioz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -950,7 +958,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_footnote {
+#gdoxffwioz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -959,7 +967,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#dtytlwyurh .gt_sourcenotes {
+#gdoxffwioz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -973,7 +981,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#dtytlwyurh .gt_sourcenote {
+#gdoxffwioz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -981,63 +989,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#dtytlwyurh .gt_left {
+#gdoxffwioz .gt_left {
   text-align: left;
 }
 
-#dtytlwyurh .gt_center {
+#gdoxffwioz .gt_center {
   text-align: center;
 }
 
-#dtytlwyurh .gt_right {
+#gdoxffwioz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dtytlwyurh .gt_font_normal {
+#gdoxffwioz .gt_font_normal {
   font-weight: normal;
 }
 
-#dtytlwyurh .gt_font_bold {
+#gdoxffwioz .gt_font_bold {
   font-weight: bold;
 }
 
-#dtytlwyurh .gt_font_italic {
+#gdoxffwioz .gt_font_italic {
   font-style: italic;
 }
 
-#dtytlwyurh .gt_super {
+#gdoxffwioz .gt_super {
   font-size: 65%;
 }
 
-#dtytlwyurh .gt_footnote_marks {
+#gdoxffwioz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dtytlwyurh .gt_asterisk {
+#gdoxffwioz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dtytlwyurh .gt_indent_1 {
+#gdoxffwioz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dtytlwyurh .gt_indent_2 {
+#gdoxffwioz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dtytlwyurh .gt_indent_3 {
+#gdoxffwioz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dtytlwyurh .gt_indent_4 {
+#gdoxffwioz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dtytlwyurh .gt_indent_5 {
+#gdoxffwioz .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1049,29 +1057,35 @@ ul.task-list li input[type="checkbox"] {
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="2020">2020</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="2021">2021</th>
       <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Variação">Variação</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Variação percentual">Variação percentual</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
     <tr><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">Centro-Oeste</th>
 <td headers="stub_1_1 2020" class="gt_row gt_right">3.643</td>
 <td headers="stub_1_1 2021" class="gt_row gt_right">3.882</td>
-<td headers="stub_1_1 var" class="gt_row gt_right" style="background-color: #EF9878; color: #000000;">6,56%</td></tr>
+<td headers="stub_1_1 var" class="gt_row gt_right">239</td>
+<td headers="stub_1_1 var_perc" class="gt_row gt_right" style="background-color: #EF9878; color: #000000;">6,56%</td></tr>
     <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">Nordeste</th>
 <td headers="stub_1_2 2020" class="gt_row gt_right">9.825</td>
 <td headers="stub_1_2 2021" class="gt_row gt_right">9.799</td>
-<td headers="stub_1_2 var" class="gt_row gt_right" style="background-color: #F4F5F6; color: #000000;">−0,26%</td></tr>
+<td headers="stub_1_2 var" class="gt_row gt_right">−26</td>
+<td headers="stub_1_2 var_perc" class="gt_row gt_right" style="background-color: #F4F5F6; color: #000000;">−0,26%</td></tr>
     <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">Norte</th>
 <td headers="stub_1_3 2020" class="gt_row gt_right">3.163</td>
 <td headers="stub_1_3 2021" class="gt_row gt_right">3.193</td>
-<td headers="stub_1_3 var" class="gt_row gt_right" style="background-color: #FAEEE8; color: #000000;">0,95%</td></tr>
+<td headers="stub_1_3 var" class="gt_row gt_right">30</td>
+<td headers="stub_1_3 var_perc" class="gt_row gt_right" style="background-color: #FAEEE8; color: #000000;">0,95%</td></tr>
     <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">Sudeste</th>
 <td headers="stub_1_4 2020" class="gt_row gt_right">10.720</td>
 <td headers="stub_1_4 2021" class="gt_row gt_right">11.187</td>
-<td headers="stub_1_4 var" class="gt_row gt_right" style="background-color: #FAC3A7; color: #000000;">4,36%</td></tr>
+<td headers="stub_1_4 var" class="gt_row gt_right">467</td>
+<td headers="stub_1_4 var_perc" class="gt_row gt_right" style="background-color: #FAC3A7; color: #000000;">4,36%</td></tr>
     <tr><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub">Sul</th>
 <td headers="stub_1_5 2020" class="gt_row gt_right">5.365</td>
 <td headers="stub_1_5 2021" class="gt_row gt_right">5.752</td>
-<td headers="stub_1_5 var" class="gt_row gt_right" style="background-color: #E98A6C; color: #000000;">7,21%</td></tr>
+<td headers="stub_1_5 var" class="gt_row gt_right">387</td>
+<td headers="stub_1_5 var_perc" class="gt_row gt_right" style="background-color: #E98A6C; color: #000000;">7,21%</td></tr>
   </tbody>
   
   
@@ -1080,8 +1094,638 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="análise-por-estado" class="level2">
-<h2 class="anchored" data-anchor-id="análise-por-estado">Análise por Estado</h2>
+<section id="óbitos-por-estados" class="level2">
+<h2 class="anchored" data-anchor-id="óbitos-por-estados">Óbitos por Estados</h2>
+<p>Em relação às mortes no trânsito por estados, as unidades que apresentaram os <strong>maiores aumento percentual</strong> na quantidade de óbitos entre 2020 e 2021 foram:</p>
+<ul>
+<li><p>Amapá: 41%;</p></li>
+<li><p>Tocantins: 12%;</p></li>
+<li><p>Mato Grosso: 11%.</p></li>
+</ul>
+<p>Por outro lado, os estados que mais apresentaram <strong>reduções</strong> na quantidade de mortes no trânsito foram:</p>
+<ul>
+<li><p>Acre: -17%;</p></li>
+<li><p>Pará: -5%;</p></li>
+<li><p>Alagoas: -5%</p></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="sftaxvgxgn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sftaxvgxgn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#sftaxvgxgn thead, #sftaxvgxgn tbody, #sftaxvgxgn tfoot, #sftaxvgxgn tr, #sftaxvgxgn td, #sftaxvgxgn th {
+  border-style: none;
+}
+
+#sftaxvgxgn p {
+  margin: 0;
+  padding: 0;
+}
+
+#sftaxvgxgn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#sftaxvgxgn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#sftaxvgxgn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#sftaxvgxgn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#sftaxvgxgn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#sftaxvgxgn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#sftaxvgxgn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#sftaxvgxgn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#sftaxvgxgn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#sftaxvgxgn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#sftaxvgxgn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#sftaxvgxgn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#sftaxvgxgn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#sftaxvgxgn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#sftaxvgxgn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sftaxvgxgn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#sftaxvgxgn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#sftaxvgxgn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#sftaxvgxgn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sftaxvgxgn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#sftaxvgxgn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sftaxvgxgn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#sftaxvgxgn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sftaxvgxgn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sftaxvgxgn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sftaxvgxgn .gt_left {
+  text-align: left;
+}
+
+#sftaxvgxgn .gt_center {
+  text-align: center;
+}
+
+#sftaxvgxgn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#sftaxvgxgn .gt_font_normal {
+  font-weight: normal;
+}
+
+#sftaxvgxgn .gt_font_bold {
+  font-weight: bold;
+}
+
+#sftaxvgxgn .gt_font_italic {
+  font-style: italic;
+}
+
+#sftaxvgxgn .gt_super {
+  font-size: 65%;
+}
+
+#sftaxvgxgn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#sftaxvgxgn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#sftaxvgxgn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#sftaxvgxgn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#sftaxvgxgn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#sftaxvgxgn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#sftaxvgxgn .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="2020">2020</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="2021">2021</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Variação">Variação</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Variação percentual">Variação percentual</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Centro-Oeste">Centro-Oeste</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_1" scope="row" class="gt_row gt_left gt_stub">Distrito Federal</th>
+<td headers="Centro-Oeste stub_1_1 2020" class="gt_row gt_right">323</td>
+<td headers="Centro-Oeste stub_1_1 2021" class="gt_row gt_right">307</td>
+<td headers="Centro-Oeste stub_1_1 var" class="gt_row gt_right">−16</td>
+<td headers="Centro-Oeste stub_1_1 var_perc" class="gt_row gt_right" style="background-color: #E4EEF4; color: #000000;">−4,95%</td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_left gt_stub">Goiás</th>
+<td headers="Centro-Oeste stub_1_2 2020" class="gt_row gt_right">1.578</td>
+<td headers="Centro-Oeste stub_1_2 2021" class="gt_row gt_right">1.674</td>
+<td headers="Centro-Oeste stub_1_2 var" class="gt_row gt_right">96</td>
+<td headers="Centro-Oeste stub_1_2 var_perc" class="gt_row gt_right" style="background-color: #FBE6DA; color: #000000;">6,08%</td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_left gt_stub">Mato Grosso</th>
+<td headers="Centro-Oeste stub_1_3 2020" class="gt_row gt_right">1.112</td>
+<td headers="Centro-Oeste stub_1_3 2021" class="gt_row gt_right">1.235</td>
+<td headers="Centro-Oeste stub_1_3 var" class="gt_row gt_right">123</td>
+<td headers="Centro-Oeste stub_1_3 var_perc" class="gt_row gt_right" style="background-color: #FDD5BF; color: #000000;">11,06%</td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_left gt_stub">Mato Grosso do Sul</th>
+<td headers="Centro-Oeste stub_1_4 2020" class="gt_row gt_right">630</td>
+<td headers="Centro-Oeste stub_1_4 2021" class="gt_row gt_right">666</td>
+<td headers="Centro-Oeste stub_1_4 var" class="gt_row gt_right">36</td>
+<td headers="Centro-Oeste stub_1_4 var_perc" class="gt_row gt_right" style="background-color: #FBE7DB; color: #000000;">5,71%</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Nordeste">Nordeste</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_5" scope="row" class="gt_row gt_left gt_stub">Alagoas</th>
+<td headers="Nordeste stub_1_5 2020" class="gt_row gt_right">678</td>
+<td headers="Nordeste stub_1_5 2021" class="gt_row gt_right">644</td>
+<td headers="Nordeste stub_1_5 var" class="gt_row gt_right">−34</td>
+<td headers="Nordeste stub_1_5 var_perc" class="gt_row gt_right" style="background-color: #E4EEF4; color: #000000;">−5,01%</td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_left gt_stub">Bahia</th>
+<td headers="Nordeste stub_1_6 2020" class="gt_row gt_right">2.306</td>
+<td headers="Nordeste stub_1_6 2021" class="gt_row gt_right">2.336</td>
+<td headers="Nordeste stub_1_6 var" class="gt_row gt_right">30</td>
+<td headers="Nordeste stub_1_6 var_perc" class="gt_row gt_right" style="background-color: #F8F3F1; color: #000000;">1,30%</td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_left gt_stub">Ceará</th>
+<td headers="Nordeste stub_1_7 2020" class="gt_row gt_right">1.311</td>
+<td headers="Nordeste stub_1_7 2021" class="gt_row gt_right">1.307</td>
+<td headers="Nordeste stub_1_7 var" class="gt_row gt_right">−4</td>
+<td headers="Nordeste stub_1_7 var_perc" class="gt_row gt_right" style="background-color: #F6F6F7; color: #000000;">−0,31%</td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_left gt_stub">Maranhão</th>
+<td headers="Nordeste stub_1_8 2020" class="gt_row gt_right">1.399</td>
+<td headers="Nordeste stub_1_8 2021" class="gt_row gt_right">1.401</td>
+<td headers="Nordeste stub_1_8 var" class="gt_row gt_right">2</td>
+<td headers="Nordeste stub_1_8 var_perc" class="gt_row gt_right" style="background-color: #F7F7F6; color: #000000;">0,14%</td></tr>
+    <tr><th id="stub_1_9" scope="row" class="gt_row gt_left gt_stub">Paraíba</th>
+<td headers="Nordeste stub_1_9 2020" class="gt_row gt_right">797</td>
+<td headers="Nordeste stub_1_9 2021" class="gt_row gt_right">837</td>
+<td headers="Nordeste stub_1_9 var" class="gt_row gt_right">40</td>
+<td headers="Nordeste stub_1_9 var_perc" class="gt_row gt_right" style="background-color: #FBE9DF; color: #000000;">5,02%</td></tr>
+    <tr><th id="stub_1_10" scope="row" class="gt_row gt_left gt_stub">Pernambuco</th>
+<td headers="Nordeste stub_1_10 2020" class="gt_row gt_right">1.551</td>
+<td headers="Nordeste stub_1_10 2021" class="gt_row gt_right">1.509</td>
+<td headers="Nordeste stub_1_10 var" class="gt_row gt_right">−42</td>
+<td headers="Nordeste stub_1_10 var_perc" class="gt_row gt_right" style="background-color: #EDF2F5; color: #000000;">−2,71%</td></tr>
+    <tr><th id="stub_1_11" scope="row" class="gt_row gt_left gt_stub">Piauí</th>
+<td headers="Nordeste stub_1_11 2020" class="gt_row gt_right">952</td>
+<td headers="Nordeste stub_1_11 2021" class="gt_row gt_right">930</td>
+<td headers="Nordeste stub_1_11 var" class="gt_row gt_right">−22</td>
+<td headers="Nordeste stub_1_11 var_perc" class="gt_row gt_right" style="background-color: #EEF3F5; color: #000000;">−2,31%</td></tr>
+    <tr><th id="stub_1_12" scope="row" class="gt_row gt_left gt_stub">Rio Grande do Norte</th>
+<td headers="Nordeste stub_1_12 2020" class="gt_row gt_right">438</td>
+<td headers="Nordeste stub_1_12 2021" class="gt_row gt_right">438</td>
+<td headers="Nordeste stub_1_12 var" class="gt_row gt_right">0</td>
+<td headers="Nordeste stub_1_12 var_perc" class="gt_row gt_right" style="background-color: #F7F7F7; color: #000000;">0,00%</td></tr>
+    <tr><th id="stub_1_13" scope="row" class="gt_row gt_left gt_stub">Sergipe</th>
+<td headers="Nordeste stub_1_13 2020" class="gt_row gt_right">393</td>
+<td headers="Nordeste stub_1_13 2021" class="gt_row gt_right">397</td>
+<td headers="Nordeste stub_1_13 var" class="gt_row gt_right">4</td>
+<td headers="Nordeste stub_1_13 var_perc" class="gt_row gt_right" style="background-color: #F8F4F2; color: #000000;">1,02%</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Norte">Norte</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_14" scope="row" class="gt_row gt_left gt_stub">Acre</th>
+<td headers="Norte stub_1_14 2020" class="gt_row gt_right">115</td>
+<td headers="Norte stub_1_14 2021" class="gt_row gt_right">95</td>
+<td headers="Norte stub_1_14 var" class="gt_row gt_right">−20</td>
+<td headers="Norte stub_1_14 var_perc" class="gt_row gt_right" style="background-color: #A3CDE3; color: #000000;">−17,39%</td></tr>
+    <tr><th id="stub_1_15" scope="row" class="gt_row gt_left gt_stub">Amapá</th>
+<td headers="Norte stub_1_15 2020" class="gt_row gt_right">69</td>
+<td headers="Norte stub_1_15 2021" class="gt_row gt_right">97</td>
+<td headers="Norte stub_1_15 var" class="gt_row gt_right">28</td>
+<td headers="Norte stub_1_15 var_perc" class="gt_row gt_right" style="background-color: #AD162A; color: #FFFFFF;">40,58%</td></tr>
+    <tr><th id="stub_1_16" scope="row" class="gt_row gt_left gt_stub">Amazonas</th>
+<td headers="Norte stub_1_16 2020" class="gt_row gt_right">397</td>
+<td headers="Norte stub_1_16 2021" class="gt_row gt_right">412</td>
+<td headers="Norte stub_1_16 var" class="gt_row gt_right">15</td>
+<td headers="Norte stub_1_16 var_perc" class="gt_row gt_right" style="background-color: #FAECE5; color: #000000;">3,78%</td></tr>
+    <tr><th id="stub_1_17" scope="row" class="gt_row gt_left gt_stub">Pará</th>
+<td headers="Norte stub_1_17 2020" class="gt_row gt_right">1.551</td>
+<td headers="Norte stub_1_17 2021" class="gt_row gt_right">1.470</td>
+<td headers="Norte stub_1_17 var" class="gt_row gt_right">−81</td>
+<td headers="Norte stub_1_17 var_perc" class="gt_row gt_right" style="background-color: #E3EEF3; color: #000000;">−5,22%</td></tr>
+    <tr><th id="stub_1_18" scope="row" class="gt_row gt_left gt_stub">Rondônia</th>
+<td headers="Norte stub_1_18 2020" class="gt_row gt_right">413</td>
+<td headers="Norte stub_1_18 2021" class="gt_row gt_right">442</td>
+<td headers="Norte stub_1_18 var" class="gt_row gt_right">29</td>
+<td headers="Norte stub_1_18 var_perc" class="gt_row gt_right" style="background-color: #FCE3D5; color: #000000;">7,02%</td></tr>
+    <tr><th id="stub_1_19" scope="row" class="gt_row gt_left gt_stub">Roraima</th>
+<td headers="Norte stub_1_19 2020" class="gt_row gt_right">128</td>
+<td headers="Norte stub_1_19 2021" class="gt_row gt_right">128</td>
+<td headers="Norte stub_1_19 var" class="gt_row gt_right">0</td>
+<td headers="Norte stub_1_19 var_perc" class="gt_row gt_right" style="background-color: #F7F7F7; color: #000000;">0,00%</td></tr>
+    <tr><th id="stub_1_20" scope="row" class="gt_row gt_left gt_stub">Tocantins</th>
+<td headers="Norte stub_1_20 2020" class="gt_row gt_right">490</td>
+<td headers="Norte stub_1_20 2021" class="gt_row gt_right">549</td>
+<td headers="Norte stub_1_20 var" class="gt_row gt_right">59</td>
+<td headers="Norte stub_1_20 var_perc" class="gt_row gt_right" style="background-color: #FCD0B9; color: #000000;">12,04%</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Sudeste">Sudeste</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_21" scope="row" class="gt_row gt_left gt_stub">Espírito Santo</th>
+<td headers="Sudeste stub_1_21 2020" class="gt_row gt_right">759</td>
+<td headers="Sudeste stub_1_21 2021" class="gt_row gt_right">813</td>
+<td headers="Sudeste stub_1_21 var" class="gt_row gt_right">54</td>
+<td headers="Sudeste stub_1_21 var_perc" class="gt_row gt_right" style="background-color: #FCE3D5; color: #000000;">7,11%</td></tr>
+    <tr><th id="stub_1_22" scope="row" class="gt_row gt_left gt_stub">Minas Gerais</th>
+<td headers="Sudeste stub_1_22 2020" class="gt_row gt_right">3.010</td>
+<td headers="Sudeste stub_1_22 2021" class="gt_row gt_right">3.278</td>
+<td headers="Sudeste stub_1_22 var" class="gt_row gt_right">268</td>
+<td headers="Sudeste stub_1_22 var_perc" class="gt_row gt_right" style="background-color: #FDDECC; color: #000000;">8,90%</td></tr>
+    <tr><th id="stub_1_23" scope="row" class="gt_row gt_left gt_stub">Rio de Janeiro</th>
+<td headers="Sudeste stub_1_23 2020" class="gt_row gt_right">1.793</td>
+<td headers="Sudeste stub_1_23 2021" class="gt_row gt_right">1.885</td>
+<td headers="Sudeste stub_1_23 var" class="gt_row gt_right">92</td>
+<td headers="Sudeste stub_1_23 var_perc" class="gt_row gt_right" style="background-color: #FBE9DE; color: #000000;">5,13%</td></tr>
+    <tr><th id="stub_1_24" scope="row" class="gt_row gt_left gt_stub">São Paulo</th>
+<td headers="Sudeste stub_1_24 2020" class="gt_row gt_right">5.158</td>
+<td headers="Sudeste stub_1_24 2021" class="gt_row gt_right">5.211</td>
+<td headers="Sudeste stub_1_24 var" class="gt_row gt_right">53</td>
+<td headers="Sudeste stub_1_24 var_perc" class="gt_row gt_right" style="background-color: #F8F4F2; color: #000000;">1,03%</td></tr>
+    <tr class="gt_group_heading_row">
+      <th colspan="5" class="gt_group_heading" scope="colgroup" id="Sul">Sul</th>
+    </tr>
+    <tr class="gt_row_group_first"><th id="stub_1_25" scope="row" class="gt_row gt_left gt_stub">Paraná</th>
+<td headers="Sul stub_1_25 2020" class="gt_row gt_right">2.451</td>
+<td headers="Sul stub_1_25 2021" class="gt_row gt_right">2.662</td>
+<td headers="Sul stub_1_25 var" class="gt_row gt_right">211</td>
+<td headers="Sul stub_1_25 var_perc" class="gt_row gt_right" style="background-color: #FDDFCE; color: #000000;">8,61%</td></tr>
+    <tr><th id="stub_1_26" scope="row" class="gt_row gt_left gt_stub">Rio Grande do Sul</th>
+<td headers="Sul stub_1_26 2020" class="gt_row gt_right">1.533</td>
+<td headers="Sul stub_1_26 2021" class="gt_row gt_right">1.684</td>
+<td headers="Sul stub_1_26 var" class="gt_row gt_right">151</td>
+<td headers="Sul stub_1_26 var_perc" class="gt_row gt_right" style="background-color: #FDDBC8; color: #000000;">9,85%</td></tr>
+    <tr><th id="stub_1_27" scope="row" class="gt_row gt_left gt_stub">Santa Catarina</th>
+<td headers="Sul stub_1_27 2020" class="gt_row gt_right">1.381</td>
+<td headers="Sul stub_1_27 2021" class="gt_row gt_right">1.406</td>
+<td headers="Sul stub_1_27 var" class="gt_row gt_right">25</td>
+<td headers="Sul stub_1_27 var_perc" class="gt_row gt_right" style="background-color: #F9F2EE; color: #000000;">1,81%</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-bb09379302e877a1271b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-bb09379302e877a1271b">{"x":{"data":[{"orientation":"h","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999],"base":[-0.173913043478261,-0.0501474926253687,-0.0030511060259344,-0.0495356037151703,-0.0522243713733075,-0.0270793036750484,-0.023109243697479,0,0],"x":[0.173913043478261,0.0501474926253687,0.0030511060259344,0.0495356037151703,0.0522243713733075,0.0270793036750484,0.023109243697479,0,0],"y":[1,3,7,4,2,5,6,8,9],"text":["fct_reorder(nome_uf, var_perc): Acre<br />var_perc: -0.173913043<br />signal: neg","fct_reorder(nome_uf, var_perc): Alagoas<br />var_perc: -0.050147493<br />signal: neg","fct_reorder(nome_uf, var_perc): Ceará<br />var_perc: -0.003051106<br />signal: neg","fct_reorder(nome_uf, var_perc): Distrito Federal<br />var_perc: -0.049535604<br />signal: neg","fct_reorder(nome_uf, var_perc): Pará<br />var_perc: -0.052224371<br />signal: neg","fct_reorder(nome_uf, var_perc): Pernambuco<br />var_perc: -0.027079304<br />signal: neg","fct_reorder(nome_uf, var_perc): Piauí<br />var_perc: -0.023109244<br />signal: neg","fct_reorder(nome_uf, var_perc): Rio Grande do Norte<br />var_perc:  0.000000000<br />signal: neg","fct_reorder(nome_uf, var_perc): Roraima<br />var_perc:  0.000000000<br />signal: neg"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,73,109,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"neg","legendgroup":"neg","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"h","width":[0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[0.405797101449275,0.0377833753148615,0.013009540329575,0.0711462450592885,0.0608365019011407,0.00142959256611866,0.110611510791367,0.0571428571428571,0.0890365448504983,0.0860873113015096,0.0501882057716437,0.0984996738421396,0.0513106525376464,0.0702179176755448,0.0181028240405503,0.0101781170483461,0.0102753005040713,0.120408163265306],"y":[27,15,13,21,19,10,25,18,23,22,16,24,17,20,14,11,12,26],"text":["fct_reorder(nome_uf, var_perc): Amapá<br />var_perc:  0.405797101<br />signal: pos","fct_reorder(nome_uf, var_perc): Amazonas<br />var_perc:  0.037783375<br />signal: pos","fct_reorder(nome_uf, var_perc): Bahia<br />var_perc:  0.013009540<br />signal: pos","fct_reorder(nome_uf, var_perc): Espírito Santo<br />var_perc:  0.071146245<br />signal: pos","fct_reorder(nome_uf, var_perc): Goiás<br />var_perc:  0.060836502<br />signal: pos","fct_reorder(nome_uf, var_perc): Maranhão<br />var_perc:  0.001429593<br />signal: pos","fct_reorder(nome_uf, var_perc): Mato Grosso<br />var_perc:  0.110611511<br />signal: pos","fct_reorder(nome_uf, var_perc): Mato Grosso do Sul<br />var_perc:  0.057142857<br />signal: pos","fct_reorder(nome_uf, var_perc): Minas Gerais<br />var_perc:  0.089036545<br />signal: pos","fct_reorder(nome_uf, var_perc): Paraná<br />var_perc:  0.086087311<br />signal: pos","fct_reorder(nome_uf, var_perc): Paraíba<br />var_perc:  0.050188206<br />signal: pos","fct_reorder(nome_uf, var_perc): Rio Grande do Sul<br />var_perc:  0.098499674<br />signal: pos","fct_reorder(nome_uf, var_perc): Rio de Janeiro<br />var_perc:  0.051310653<br />signal: pos","fct_reorder(nome_uf, var_perc): Rondônia<br />var_perc:  0.070217918<br />signal: pos","fct_reorder(nome_uf, var_perc): Santa Catarina<br />var_perc:  0.018102824<br />signal: pos","fct_reorder(nome_uf, var_perc): Sergipe<br />var_perc:  0.010178117<br />signal: pos","fct_reorder(nome_uf, var_perc): São Paulo<br />var_perc:  0.010275301<br />signal: pos","fct_reorder(nome_uf, var_perc): Tocantins<br />var_perc:  0.120408163<br />signal: pos"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(213,31,41,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"pos","legendgroup":"pos","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":122.009132420091},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Variação das mortes no trânsito por estado (2020 - 2021)","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.55,0.55],"tickmode":"array","ticktext":["-50%","-40%","-30%","-20%","-10%","0%","10%","20%","30%","40%","50%"],"tickvals":[-0.5,-0.4,-0.3,-0.2,-0.1,0,0.1,0.2,0.3,0.4,0.5],"categoryorder":"array","categoryarray":["-50%","-40%","-30%","-20%","-10%","0%","10%","20%","30%","40%","50%"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Variação percentual","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,27.6],"tickmode":"array","ticktext":["Acre","Pará","Alagoas","Distrito Federal","Pernambuco","Piauí","Ceará","Rio Grande do Norte","Roraima","Maranhão","Sergipe","São Paulo","Bahia","Santa Catarina","Amazonas","Paraíba","Rio de Janeiro","Mato Grosso do Sul","Goiás","Rondônia","Espírito Santo","Paraná","Minas Gerais","Rio Grande do Sul","Mato Grosso","Tocantins","Amapá"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27],"categoryorder":"array","categoryarray":["Acre","Pará","Alagoas","Distrito Federal","Pernambuco","Piauí","Ceará","Rio Grande do Norte","Roraima","Maranhão","Sergipe","São Paulo","Bahia","Santa Catarina","Amazonas","Paraíba","Rio de Janeiro","Mato Grosso do Sul","Goiás","Rondônia","Espírito Santo","Paraná","Minas Gerais","Rio Grande do Sul","Mato Grosso","Tocantins","Amapá"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"6cec2f9d612":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"6cec2f9d612","visdat":{"6cec2f9d612":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 </section>
 <section id="análise-por-modal" class="level2">
 <h2 class="anchored" data-anchor-id="análise-por-modal">Análise por Modal</h2>
