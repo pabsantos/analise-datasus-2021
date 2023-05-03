@@ -241,6 +241,58 @@ uf_plot <- ggplot(tab_plot, aes(x = fct_reorder(nome_uf, var_perc), y = var_perc
 ggplotly(uf_plot)
 ```
 
-## Análise por Modal
+## Óbitos por Modal da Vítima
 
-## Pirâmide Etária das Vítimas
+Considerando o modo de transporte em que a vítima se encontrava durante o sinistro, os modais com **maiores aumentos percentuais entre** 2020 e 2021 foram os modais **caminhão** (definido como "veículo de transporte pesado" pelo DATASUS), com uma variação de **13%**, e **ônibus**, com uma variação de **12%.**
+
+Houve um aumento reduzido na morte de ocupantes de motocicleta entre 2020 e 2021, apresentando uma variação de **quase 1%.** Considerando outros modos mais vulneráveis, como o **pedestre** e o **ciclista**, houve um aumento de **5%** e **2%**, respectivamente, na quantidade de óbitos.
+
+O único modal que apresentou uma redução foi o triciclo, com uma variação de -**77%** na quantidade de óbitos entre 2020 e 2021.
+
+```{r}
+#| label: analise-modal
+
+tab_modal <- datasus_sim |> 
+    filter(ano_ocorrencia %in% c(2020, 2021)) |> 
+    count(modal_vitima, ano_ocorrencia) |> 
+    mutate(
+        n = case_when(
+            modal_vitima == "Motocicleta" & ano_ocorrencia == 2020 ~ 11853,
+            modal_vitima == "Motocicleta" & ano_ocorrencia == 2021 ~ 11942,
+            TRUE ~ n
+        )
+    ) |> 
+    add_row(modal_vitima = "Triciclo", ano_ocorrencia = 2020, n = 158) |> 
+    add_row(modal_vitima = "Triciclo", ano_ocorrencia = 2021, n = 36) |> 
+    pivot_wider(names_from = ano_ocorrencia, values_from = n) |> 
+    mutate(var = `2021` - `2020`, var_perc = var / `2020`)
+
+gt_modal <- tab_modal |> 
+    gt(rowname_col = "modal_vitima") |> 
+    fmt_number(
+        columns = `2020`:var,
+        sep_mark = ".",
+        dec_mark = ",",
+        decimals = 0
+    ) |> 
+    fmt_percent(
+        columns = var_perc,
+        sep_mark = ".",
+        dec_mark = ",",
+        decimals = 2
+    ) |> 
+    data_color(
+        columns = var_perc,
+        palette = "RdBu",
+        domain = c(-0.8, 0.8),
+        reverse = T
+    ) |> 
+    cols_label(
+        var = "Variação",
+        var_perc = "Variação percentual"
+    )
+
+gt_modal
+```
+
+##  Pirâmide Etária das Vítimas
