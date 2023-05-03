@@ -1,4 +1,5 @@
 ---
+title: "Dados Consolidados de Mortes no Trânsito - 2021"
 format: 
   html:
     toc: true
@@ -14,8 +15,6 @@ citation-location: margin
 ---
 
 ![](img/Prancheta%201%20c%C3%B3pia%202PNG.png){fig-align="left" width="300"}
-
-# Dados Consolidados de Mortes no Trânsito - 2021
 
 *Versão 1 - 03/05/2023*
 
@@ -40,7 +39,7 @@ load("data/datasus-sim-2022.rda")
 
 ## Cenário Brasileiro
 
-A quantidade de óbitos anuais no trânsito brasileiro cresce pelo segundo ano consecutivo. Em 2021, o Brasil apresentou um número de **33.813** óbitos no trânsito, um aumento de 1.097 óbitos em comparação com os dados de 2020, o que representa uma variação percentual de **3,35%**. A variação percentual de **3,35%** em 2021 foi similar aos aumentos ocorridos em 2014 e 2012.
+A quantidade de óbitos anuais no trânsito brasileiro cresce pelo segundo ano consecutivo. Em 2021, o Brasil apresentou um número de **33.813** óbitos no trânsito, um **aumento de 1.097 óbitos** em comparação com os dados de 2020, o que representa uma variação percentual de **3,35%**. A variação percentual de **3,35%** em 2021 foi similar aos aumentos ocorridos em 2014 e 2012.
 
 ```{r}
 #| label: analise-br
@@ -82,7 +81,50 @@ gt_brasil <- tab_brasil |>
 gt_brasil
 ```
 
-## Análise por Região
+## Óbitos por Região
+
+Considerando as macroregiões do Brasil, o **Sul** apresentou o **maior aumento percentual** de mortes no trânsito, atingindo **7,21%**. Em ordem decrescente, segue a Região **Centro-Oeste** com um aumento de **6,56%**, Região **Sudeste** com **4,36%** e Região **Norte** com aumento de **0,95%.** Apenas a Região **Nordeste** apresentou uma redução nos números de mortes no trânsito, com uma variação de **-0,26%.**
+
+```{r}
+#| label: analise-regiões
+
+tab_regioes <- datasus_sim |> 
+    mutate(nome_regiao = if_else(
+        ano_ocorrencia == 2021 & is.na(nome_regiao),
+        "Sudeste",
+        nome_regiao
+    )) |> 
+    filter(ano_ocorrencia %in% c(2020, 2021)) |> 
+    count(ano_ocorrencia, nome_regiao) |> 
+    pivot_wider(names_from = ano_ocorrencia, values_from = n) |> 
+    mutate(var = (`2021` - `2020`) / `2020`)
+
+gt_regioes <- tab_regioes |> 
+    gt(rowname_col = "nome_regiao") |> 
+    fmt_number(
+        columns = `2020`:`2021`,
+        sep_mark = ".",
+        dec_mark = ",",
+        decimals = 0
+    ) |> 
+    fmt_percent(
+        columns = var,
+        sep_mark = ".",
+        dec_mark = ",",
+        decimals = 2
+    ) |> 
+    data_color(
+        columns = var,
+        palette = "RdBu",
+        domain = c(-0.15, 0.15),
+        reverse = T
+    ) |> 
+    cols_label(
+        var = "Variação"
+    )
+
+gt_regioes
+```
 
 ## Análise por Estado
 
