@@ -20,8 +20,6 @@ citation-location: margin
 
 **Autor:** Pedro Augusto Borges
 
-**Código-fonte:**
-
 ## Introdução
 
 No dia 02 de maio o Ministério da Saúde disponibilizou a base de dados consolidada do Sistema de Informações de Mortes (SIM) para o ano de 2021. Assim, o presente documento traz uma análise das mortes no trânsito no Brasil, com foco na evolução desses números entre 2020 e 2021.
@@ -295,4 +293,72 @@ gt_modal <- tab_modal |>
 gt_modal
 ```
 
-##  Pirâmide Etária das Vítimas
+##  Pirâmide Etária das Vítimas {.tabset}
+
+Por fim, considerando o sexo das vítimas, em 2021 as vítimas do sexo masculino ainda são a grande maioria dos mortos no trânsito, representando **83%** dos óbitos. A faixa etária com a maior quantidade de mortes no trânsito, em 2021, ainda é a de 20 a 24 anos.
+
+Considerando apenas as vítimas fatais do sexo feminino, a faixa etária com um maior aumento de mortes entre 2020 e 2021 foi a acima de 80 anos, com uma variação de **25%.** A faixa etária com a maior redução foi a de 20 a 24 anos, atingindo uma variação de quase **-7%.**
+
+Considerando as vítimas fatais do sexo masculino, a faixa etária com o maior aumento de mortes entre 2020 e 2021 foi a de 70 a 74 anos, com uma variação de **21%.** A faixa etária com a maior redução foi a de 10 a 14 anos, com uma variação de **-14%.**
+
+```{r}
+#| label: analise-piramide
+
+tab_piramide <- datasus_sim |> 
+    filter(ano_ocorrencia %in% c(2020, 2021)) |> 
+    count(ano_ocorrencia, sexo_vitima, faixa_etaria_vitima) |>
+    drop_na() |> 
+    pivot_wider(
+        names_from = c(sexo_vitima, ano_ocorrencia),
+        values_from = n,
+        names_sep = "_"
+    ) |> 
+    mutate(
+        var_fem = (Feminino_2021 - Feminino_2020) / Feminino_2020,
+        var_masc = (Masculino_2021 - Masculino_2020) / Masculino_2020
+    ) |> 
+    arrange(desc(faixa_etaria_vitima))
+
+gt_piramide <- tab_piramide |> 
+    gt(rowname_col = "faixa_etaria_vitima") |> 
+    fmt_number(
+        columns = Feminino_2020:Masculino_2021,
+        sep_mark = ".",
+        dec_mark = ",",
+        decimals = 0
+    ) |> 
+    fmt_percent(
+        columns = var_fem:var_masc,
+        sep_mark = ".",
+        dec_mark = ",",
+        decimals = 2
+    ) |> 
+    data_color(
+        columns = var_fem:var_masc,
+        palette = "RdBu",
+        domain = c(-0.5, 0.5),
+        reverse = T
+    ) |>
+    tab_spanner(
+        label = "2020",
+        columns = Feminino_2020:Masculino_2020
+    ) |> 
+    tab_spanner(
+        label = "2021",
+        columns = Feminino_2021:Masculino_2021
+    ) |> 
+    tab_spanner(
+        label = "Variação percentual",
+        columns = var_fem:var_masc
+    ) |> 
+    cols_label(
+        Feminino_2020 = "Feminino",
+        Masculino_2020 = "Masculino",
+        Feminino_2021 = "Feminino",
+        Masculino_2021 = "Masculino",
+        var_fem = "Feminino",
+        var_masc = "Masculino"
+    )
+
+gt_piramide
+```
