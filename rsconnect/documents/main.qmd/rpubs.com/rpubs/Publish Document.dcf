@@ -1,0 +1,11 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/1037434/678277ed899b41fbaa3ca2ae4da80663
+bundleId: https://api.rpubs.com/api/v1/document/1037434/678277ed899b41fbaa3ca2ae4da80663
+url: http://rpubs.com/pabsantos/1037434
+when: 1683141829.78169
+lastSyncTime: 1683141829.78172
