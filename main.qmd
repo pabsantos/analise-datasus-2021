@@ -295,7 +295,7 @@ gt_modal
 
 ##  Pirâmide Etária das Vítimas {.tabset}
 
-Por fim, considerando o sexo das vítimas, em 2021 as vítimas do sexo masculino ainda são a grande maioria dos mortos no trânsito, representando **83%** dos óbitos. A faixa etária com a maior quantidade de mortes no trânsito, em 2021, ainda é a de 20 a 24 anos.
+Por fim, considerando o sexo das vítimas, em 2021 as vítimas do sexo masculino ainda são a maioria dos mortos no trânsito, representando **83%** dos óbitos. A faixa etária com a maior quantidade de mortes no trânsito, em 2021, ainda é a de 20 a 24 anos.
 
 Considerando apenas as vítimas fatais do sexo feminino, a faixa etária com um maior aumento de mortes entre 2020 e 2021 foi a acima de 80 anos, com uma variação de **25%.** A faixa etária com a maior redução foi a de 20 a 24 anos, atingindo uma variação de quase **-7%.**
 
