@@ -1,16 +1,27 @@
 ---
-title: "Dados Consolidados de Mortes no Trânsito - 2021"
-author: "Pedro Augusto Borges"
 format: 
   html:
     toc: true
     toc-title: Conteúdo
+    smooth-scroll: true
 editor: visual
+echo: false
+warning: false
 editor_options: 
   chunk_output_type: console
 reference-location: margin
 citation-location: margin
 ---
+
+![](img/Prancheta%201%20c%C3%B3pia%202PNG.png){fig-align="left" width="300"}
+
+# Dados Consolidados de Mortes no Trânsito - 2021
+
+*Versão 1 - 03/05/2023*
+
+**Autor:** Pedro Augusto Borges
+
+**Código-fonte:**
 
 ## Introdução
 
@@ -28,6 +39,48 @@ load("data/datasus-sim-2022.rda")
 ```
 
 ## Cenário Brasileiro
+
+A quantidade de óbitos anuais no trânsito brasileiro cresce pelo segundo ano consecutivo. Em 2021, o Brasil apresentou um número de **33.813** óbitos no trânsito, um aumento de 1.097 óbitos em comparação com os dados de 2020, o que representa uma variação percentual de **3,35%**. A variação percentual de **3,35%** em 2021 foi similar aos aumentos ocorridos em 2014 e 2012.
+
+```{r}
+#| label: analise-br
+
+tab_brasil <- datasus_sim |> 
+    filter(ano_ocorrencia > 2009 & ano_ocorrencia < 2022) |> 
+    count(ano_ocorrencia) |> 
+    mutate(
+        var_abs = n - lag(n),
+        var_perc = var_abs / lag(n)
+    ) |> 
+    filter(ano_ocorrencia != 2010)
+
+gt_brasil <- tab_brasil |> 
+    gt(rowname_col = "ano_ocorrencia") |> 
+    fmt_number(
+        columns = n:var_abs,
+        sep_mark = ".",
+        dec_mark = ",",
+        decimals = 0
+    ) |> 
+    fmt_percent(
+        columns = var_perc,
+        dec_mark = ",",
+        sep_mark = "."
+    ) |> 
+    data_color(
+        columns = var_perc,
+        palette = "RdBu",
+        domain = c(-0.15, 0.15),
+        reverse = T
+    ) |> 
+    cols_label(
+        n = "Número de óbitos",
+        var_abs = "Variação",
+        var_perc = "Variação percentual"
+    )
+
+gt_brasil
+```
 
 ## Análise por Região
 
