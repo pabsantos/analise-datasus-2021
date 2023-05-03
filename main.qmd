@@ -1,13 +1,31 @@
 ---
 title: "Dados Consolidados de Mortes no Trânsito - 2021"
 author: "Pedro Augusto Borges"
-format: html
+format: 
+  html:
+    toc: true
+    toc-title: Conteúdo
 editor: visual
+editor_options: 
+  chunk_output_type: console
+reference-location: margin
+citation-location: margin
 ---
 
 ## Introdução
 
 No dia 02 de maio o Ministério da Saúde disponibilizou a base de dados consolidada do Sistema de Informações de Mortes (SIM) para o ano de 2021. Assim, o presente documento traz uma análise das mortes no trânsito no Brasil, com foco na evolução desses números entre 2020 e 2021.
+
+```{r}
+#| label: setup
+#| echo: false
+#| include: false
+
+library(tidyverse)
+library(gt)
+
+load("data/datasus-sim-2022.rda")
+```
 
 ## Cenário Brasileiro
 
